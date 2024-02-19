@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Catalog.css";
+import shoes from "../../assets/product.png";
 
 interface Product {
   id: string;
@@ -131,7 +132,7 @@ const ProductsList: React.FC<{
 const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
   return (
     <li className="products-list__item" id={product.id}>
-      <img src="./src/assets/product.png" alt="Product photo" />
+      <img src={shoes} alt="Product photo" />
       <p className="item__title">{product.title}</p>
       <p className="item__price">{product.price} $</p>
     </li>

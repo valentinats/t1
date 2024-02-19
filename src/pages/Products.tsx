@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import debounce from "lodash.debounce";
 import { Link } from "react-router-dom";
 import "./Products.css";
+import logo from "../assets/logo.svg";
+import catalogShoes from "../assets/catalog-product.png";
 
 interface Product {
   id: string;
@@ -46,7 +48,7 @@ const Products = () => {
     return (
       <div className="menu products-menu">
         <a className="menu__logo" href="/">
-          <img src="./src/assets/logo.svg" alt="Logo" />
+          <img src={logo} alt="Logo" />
         </a>
         <div className="menu__nav nav">
           <Link to="/">Back to site</Link>
@@ -86,7 +88,7 @@ const Products = () => {
                       id={product.id}
                     >
                       <img
-                        src="./src/assets/catalog-product.png"
+                        src={catalogShoes}
                         alt="Product photo"
                       />
                       <p className="item__title">{product.title}</p>

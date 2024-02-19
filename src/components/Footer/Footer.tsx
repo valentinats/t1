@@ -1,5 +1,6 @@
 import React from "react";
 import "./Footer.css";
+import logo from "../../assets/logo.svg";
 
 const Footer = () => {
   return (
@@ -7,7 +8,7 @@ const Footer = () => {
       <div className="container">
         <div className="footer__menu menu">
           <a className="menu__logo" href="/">
-            <img src="./src/assets/logo.svg" />
+            <img src={logo} />
           </a>
           <div className="menu__nav footer__nav">{renderNavigation()}</div>
         </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
+import logo from "../../assets/logo.svg";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,7 +25,7 @@ const Header = () => {
     return (
       <div className="menu">
         <a className="menu__logo" href="/">
-          <img src="./src/assets/logo.svg" alt="Logo" />
+          <img src={logo} alt="Logo" />
         </a>
         <div
           className={`header__nav menu__nav ${
@@ -85,7 +86,7 @@ const Header = () => {
       <div className={`burger ${isMenuOpen ? "burger_open" : ""}`}>
         <div className="burger__content">
           <div className="burger__logo">
-            <img src="./src/assets/logo.svg" alt="Logo" />
+            <img src={logo} alt="Logo" />
           </div>
           <div className={`${isMenuOpen ? "burger__nav" : ""}`}>
             {renderNavigation()}

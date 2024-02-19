@@ -1,6 +1,12 @@
 import React from "react";
 import { useState } from "react";
 import "./Team.css";
+import teamMember1 from "../../assets/team-member1.png";
+import teamMember2 from "../../assets/team-member2.png";
+import teamMember3 from "../../assets/team-member3.png";
+import teamMember4 from "../../assets/team-member4.png";
+import teamMember5 from "../../assets/team-member5.png";
+import teamMember6 from "../../assets/team-member6.png";
 
 const Team = () => {
   return (
@@ -17,16 +23,16 @@ const ImageGallery = () => {
   return (
     <div className="image-gallery">
       <div className="column">
-        <ImageItem imagePath="./src/assets/team-member1.png" name="Name 1" />
-        <ImageItem imagePath="./src/assets/team-member2.png" name="Name 2" />
+        <ImageItem imagePath={teamMember1} name="Name 1" />
+        <ImageItem imagePath={teamMember2} name="Name 2" />
       </div>
       <div className="column middle">
-        <ImageItem imagePath="./src/assets/team-member3.png" name="Name 3" />
-        <ImageItem imagePath="./src/assets/team-member4.png" name="Name 4" />
+        <ImageItem imagePath={teamMember3} name="Name 3" />
+        <ImageItem imagePath={teamMember4} name="Name 4" />
       </div>
       <div className="column">
-        <ImageItem imagePath="./src/assets/team-member5.png" name="Name 5" />
-        <ImageItem imagePath="./src/assets/team-member6.png" name="Name 6" />
+        <ImageItem imagePath={teamMember5} name="Name 5" />
+        <ImageItem imagePath={teamMember6} name="Name 6" />
       </div>
     </div>
   );
