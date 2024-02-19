@@ -1,0 +1,44 @@
+html,
+body {
+  width: 100%;
+  font-family: "Jost", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  margin: 0 auto;
+  background: #fff;
+  scroll-behavior: smooth;
+}
+
+.body_fixed {
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1178px;
+  margin: 0 auto;
+}
+
+.menu__logo,
+.btn {
+  cursor: pointer;
+}
+
+.btn {
+  font-family: "Jost", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+h2 {
+  font-size: 30px;
+  font-weight: 700;
+  padding-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 22px;
+  }
+}

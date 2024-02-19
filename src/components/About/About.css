@@ -1,0 +1,101 @@
+.about {
+  background-image: url(../../assets/about-background.png);
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 580px;
+  margin: 0 auto;
+  background-size: cover;
+  background-position: 50%;
+  overflow: hidden;
+  position: relative;
+}
+
+.about::after {
+  content: url(../../assets/about-figure.svg);
+}
+
+.about__desc {
+  position: absolute;
+  bottom: 218px;
+  width: 460px;
+}
+
+.about h2 {
+  padding-bottom: 14px;
+  color: #fff;
+}
+
+.about__text {
+  width: 380px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  color: #fff;
+}
+
+.about__signature {
+  position: absolute;
+  right: 2px;
+  bottom: -63px;
+}
+
+.about__signature span {
+  border: 3px solid #fff;
+  width: 25px;
+  height: 0px;
+  position: absolute;
+  right: 130px;
+  bottom: 12px;
+}
+
+.about__signature p {
+  font-weight: 700;
+  font-size: 20px;
+  color: #fff;
+}
+
+@media (max-width: 1200px) {
+  .about {
+    height: 490px;
+    background-position: 70%;
+  }
+
+  .about__desc {
+    left: 10%;
+    width: 374px;
+  }
+
+  .about__signature {
+    left: 0;
+  }
+
+  .about__signature span {
+    right: 0;
+    left: 0;
+    bottom: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about {
+    height: 328px;
+  }
+
+  .about__desc {
+    left: 4%;
+    top: 14%;
+    width: 320px;
+  }
+
+  .about__text {
+    width: 290px;
+  }
+
+  .about__signature {
+    left: 0;
+  }
+
+  .about__signature {
+    bottom: -168px;
+  }
+}
