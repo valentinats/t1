@@ -1,8 +1,11 @@
-# React + Vite
+# Каталог интернет-магазина Goods4you
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Использованные технологии: React + TypeScript + Vite.
 
-Currently, two official plugins are available:
+Дополнительные задания:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* Pixel Perfect: для разрешения 1440px (разрешение макета); 
+* Адаптивная верстка; 
+* Анимации: в разделе "Our Team" добавлено плавное затемнение и появление текста, в разделе "FAQ" реализовано плавное закрытие и открытие аккордеона;
+* a11y: используется семантическая верстка, заданы aria-label, alt к картинкам; 
+* Оптимизация загрузки ресурсов: оптимизированы изображения при помощи tinypng.com;
