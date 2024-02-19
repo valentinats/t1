@@ -51,7 +51,7 @@ const Products = () => {
           <img src={logo} alt="Logo" />
         </a>
         <div className="menu__nav nav">
-          <Link to="/">Back to site</Link>
+          <Link to="/t1/">Back to site</Link>
         </div>
       </div>
     );
