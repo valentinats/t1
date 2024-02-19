@@ -16,9 +16,9 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/staff" element={<Products />} />
-          <Route path="/item" element={<Item />} />
+          <Route path="/t1/" element={<Home />} />
+          <Route path="/t1/staff" element={<Products />} />
+          <Route path="/t1/item" element={<Item />} />
         </Routes>
       </BrowserRouter>
     );
