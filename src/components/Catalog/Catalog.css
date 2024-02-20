@@ -90,7 +90,7 @@ th:hover {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  color: #444B58;
+  color: #444b58;
   cursor: pointer;
 }
 
@@ -162,7 +162,11 @@ th:hover {
     padding: 30px 0px 30px;
   }
 
+  .catalog-list {
+    flex-direction: column;
+  }
+
   .catalog__parameters {
-    display: none;
+    width: auto;
   }
 }

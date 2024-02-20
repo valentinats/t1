@@ -26,7 +26,6 @@ const Catalog: React.FC = () => {
 
 const CatalogList: React.FC = () => {
   const [categories, setCategories] = useState<string[]>([]);
-  // const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedCategory, setSelectedCategory] =
     useState<string>("smartphones");
   const [products, setProducts] = useState<Product[]>([]);

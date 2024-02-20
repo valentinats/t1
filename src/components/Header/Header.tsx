@@ -61,7 +61,7 @@ const Header = () => {
             {link.text}
           </a>
         ))}
-        <Link to="/t1-goods4you/staff">For staff</Link>
+        <Link to="/t1/staff">For staff</Link>
       </nav>
     );
   };
