@@ -75,26 +75,23 @@ const Products = () => {
             ></input>
             {/* <button className="primary__btn products__btn btn">Search</button> */}
           </div>
-          <ul className="products-list">
+          <ul className="products-list items-list">
             {!products.length && isValidProductName && (
               <p>Enter a product name.</p>
             )}
             {products.length > 0
               ? products.map((product) => (
-                <Link to={`/t1/item/${product.id}`} key={product.id}>
-                    <li
-                      key={product.id}
-                      className="products-list__item"
-                      id={product.id}
-                    >
-                      <img
-                        src={catalogShoes}
-                        alt="Product photo"
-                      />
+                  <li
+                    key={product.id}
+                    className="products-list__item"
+                    id={product.id}
+                  >
+                    <Link to={`/t1/item/${product.id}`} key={product.id}>
+                      <img src={catalogShoes} className="item__img" alt="Product photo" />
                       <p className="item__title">{product.title}</p>
-                      <p className="item__price">${product.price}</p>
-                    </li>
-                  </Link>
+                    </Link>
+                    <p className="item__price">${product.price}</p>
+                  </li>
                 ))
               : !isValidProductName && (
                   <p>Check the spelling of the product.</p>

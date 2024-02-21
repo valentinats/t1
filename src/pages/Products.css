@@ -29,3 +29,12 @@
   margin-left: 20px;
   width: auto;
 }
+
+.item__img {
+  width: 100%;
+  padding-bottom: 10px;
+}
+
+.items-list {
+  justify-content: space-between;
+}

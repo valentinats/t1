@@ -63,3 +63,25 @@
   height: 70px;
   cursor: pointer;
 }
+
+@media (max-width: 1200px) {
+  .card__carousel {
+    display: none;
+  }
+}
+
+@media (max-width: 808px) {
+  .card {
+    flex-direction: column-reverse;
+  }
+
+  .card__gallery img {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .card__title {
+    font-size: 22px;
+  }
+}

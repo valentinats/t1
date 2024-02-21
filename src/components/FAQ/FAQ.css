@@ -4,7 +4,9 @@
 }
 
 .faq {
-  padding: 68px 316px 92px;
+  padding: 68px 0px 92px;
+  margin: 0 auto;
+  max-width: 880px;
 }
 
 .faq__line {
