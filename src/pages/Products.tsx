@@ -94,7 +94,7 @@ const Products = () => {
                   </li>
                 ))
               : !isValidProductName && (
-                  <p>Check the spelling of the product.</p>
+                  <p>API connection error.</p>
                 )}
           </ul>
         </div>

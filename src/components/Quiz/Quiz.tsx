@@ -38,28 +38,55 @@ const OptionsList = () => {
 
 const OptionsCard = () => {
   const [categories, setCategories] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     fetch("https://dummyjson.com/products/categories")
-      .then((res) => res.json())
-      .then((data) => setCategories(data));
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Failed to fetch categories");
+        }
+        return res.json();
+      })
+      .then((data) => {
+        setCategories(data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+        setError("API connection error.");
+      });
   }, []);
 
   return (
-    <ul className="options-list">
-      {categories.map((category) => (
-        <li key={category} className="options-list__card">
-          <div className="checkbox" aria-label="Product selection checkbox">
-            <input
-              className="options-list__checkbox"
-              type="checkbox"
-              id={category}
-            ></input>
-            <label htmlFor={category}>{category}</label>
-          </div>
-        </li>
-      ))}
-    </ul>
+    <div className="options-card">
+      {isLoading ? (
+        <div className="load-row">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      ) : error ? (
+        <p>{error}</p>
+      ) : (
+        <ul className="options-list">
+          {categories.map((category) => (
+            <li key={category} className="options-list__card">
+              <div className="checkbox" aria-label="Product selection checkbox">
+                <input
+                  className="options-list__checkbox"
+                  type="checkbox"
+                  id={category}
+                ></input>
+                <label htmlFor={category}>{category}</label>
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
   );
 };
 

@@ -29,11 +29,22 @@ const CatalogList: React.FC = () => {
   const [selectedCategory, setSelectedCategory] =
     useState<string>("smartphones");
   const [products, setProducts] = useState<Product[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     fetch("https://dummyjson.com/products/categories")
-      .then((res) => res.json())
-      .then((data) => setCategories(data));
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Failed to fetch categories");
+        }
+        return res.json();
+      })
+      .then((data) => setCategories(data))
+      .catch((error) => {
+        console.log(error);
+        setError("API connection error.");
+      });
 
     handleApplyButtonClick();
   }, []);
@@ -44,9 +55,23 @@ const CatalogList: React.FC = () => {
 
   const handleApplyButtonClick = () => {
     if (selectedCategory) {
+      setIsLoading(true);
+
       fetch(`https://dummyjson.com/products/category/${selectedCategory}`)
-        .then((res) => res.json())
-        .then((data) => setProducts(data.products));
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error("Failed to fetch products");
+          }
+          return res.json();
+        })
+        .then((data) => {
+          setProducts(data.products);
+          setIsLoading(false);
+        })
+        .catch((error) => {
+          console.log(error);
+          setError("API connection error.");
+        });
     }
   };
 
@@ -64,19 +89,39 @@ const CatalogList: React.FC = () => {
         <p className="table__title">Category</p>
         <table aria-label="Selecting parameters for the list of products">
           <tbody>
-            {categories.map((category, index) => (
-              <tr key={index}>
-                <th
-                  onClick={() => handleCategorySelection(category)}
-                  className={selectedCategory === category ? "selected" : ""}
-                  style={{
-                    background: selectedCategory === category ? "#d1d1d1" : "",
-                  }}
-                >
-                  {category}
-                </th>
+            {isLoading ? (
+              <tr>
+                <td colSpan={1} className="loading-row">
+                  <div className="load-row">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                </td>
               </tr>
-            ))}
+            ) : error ? (
+              <tr>
+                <td colSpan={1} className="error-row">
+                  <p>{error}</p>
+                </td>
+              </tr>
+            ) : (
+              categories.map((category, index) => (
+                <tr key={index}>
+                  <th
+                    onClick={() => handleCategorySelection(category)}
+                    className={selectedCategory === category ? "selected" : ""}
+                    style={{
+                      background:
+                        selectedCategory === category ? "#d1d1d1" : "",
+                    }}
+                  >
+                    {category}
+                  </th>
+                </tr>
+              ))
+            )}
           </tbody>
         </table>
         <button
@@ -94,7 +139,16 @@ const CatalogList: React.FC = () => {
           Reset
         </button>
       </div>
-      {selectedCategory ? (
+      {isLoading ? (
+        <div className="load-row">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      ) : error ? (
+        <p>{error}</p>
+      ) : selectedCategory ? (
         <ProductsList products={products} selectedCategory={selectedCategory} />
       ) : (
         <p>Select a category to see products.</p>

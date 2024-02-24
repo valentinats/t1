@@ -19,6 +19,8 @@ interface Product {
 const Item = () => {
   const { id } = useParams();
   const [product, setProduct] = useState<Product | null>(null);
+  const [error, setError] = useState("");
+
   const imagesArray = [
     cardShoes,
     cardShoes,
@@ -36,6 +38,7 @@ const Item = () => {
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
+        setError("API connection error.");
       });
   }, [id]);
 
@@ -78,42 +81,51 @@ const Item = () => {
                 ))}
               </div>
             </div>
-            <div className="card__info">
-              {product ? (
-                <>
-                  <p className="card__title">{product.title}</p>
-                  <ul className="card__desc">
-                    <li>
-                      Rating: <span>{product.rating}</span>
-                    </li>
-                    <li>
-                      Base price: <span>{product.price}$</span>
-                    </li>
-                    <li>
-                      Discount percentage:{" "}
-                      <span>{product.discountPercentage}%</span>
-                    </li>
-                    <li>
-                      Discount price: <span>{calculateDiscountPrice()}$</span>
-                    </li>
-                    <li>
-                      Stock: <span>{product.stock}</span>
-                    </li>
-                    <li>
-                      Brand: <span>{product.brand}</span>
-                    </li>
-                    <li>
-                      Category: <span>{product.category}</span>
-                    </li>
-                    <li>
-                      Description: <span>{product.description}</span>
-                    </li>
-                  </ul>
-                </>
-              ) : (
-                <p>Loading...</p>
-              )}
-            </div>
+            {error ? (
+              <p>{error}</p>
+            ) : (
+              <div className="card__info">
+                {product ? (
+                  <>
+                    <p className="card__title">{product.title}</p>
+                    <ul className="card__desc">
+                      <li>
+                        Rating: <span>{product.rating}</span>
+                      </li>
+                      <li>
+                        Base price: <span>{product.price}$</span>
+                      </li>
+                      <li>
+                        Discount percentage:{" "}
+                        <span>{product.discountPercentage}%</span>
+                      </li>
+                      <li>
+                        Discount price: <span>{calculateDiscountPrice()}$</span>
+                      </li>
+                      <li>
+                        Stock: <span>{product.stock}</span>
+                      </li>
+                      <li>
+                        Brand: <span>{product.brand}</span>
+                      </li>
+                      <li>
+                        Category: <span>{product.category}</span>
+                      </li>
+                      <li>
+                        Description: <span>{product.description}</span>
+                      </li>
+                    </ul>
+                  </>
+                ) : (
+                  <div className="load-row">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                )}
+              </div>
+            )}
             <p className="card__id">
               SKU ID: <span>{id}</span>
             </p>
