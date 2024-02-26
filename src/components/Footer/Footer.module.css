@@ -1,9 +1,27 @@
+.container {
+  max-width: 1178px;
+  margin: 0 auto;
+}
+
+.menu__logo,
+.btn {
+  cursor: pointer;
+}
+
+.btn {
+  font-family: "Jost", sans-serif;
+}
+
 .footer {
   background-color: #444b58;
 }
 
 .footer__menu {
   padding: 30px 0;
+}
+
+.footer__nav a {
+  color: #fff;
 }
 
 @media (max-width: 1200px) {
@@ -15,6 +33,11 @@
   .footer__nav nav {
     flex-direction: row;
     font-size: 15px;
+  }
+
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }
 

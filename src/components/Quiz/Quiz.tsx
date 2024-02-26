@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from "react";
-import "./Quiz.css";
+import styles from "./Quiz.module.css"; 
 
 const Quiz = () => {
   return (
-    <section id="productSelection" className="quiz">
-      <div className="container quiz__container">
-        <div className="quiz__inner">
-          <p className="quiz__title">
+    <section id="productSelection" className={styles.quiz}>
+      <div className={[styles['container'], styles.quiz__container].join(' ')}>
+        <div className={styles.quiz__inner}>
+          <p className={styles.quiz__title}>
             We will select the perfect product for you
           </p>
-          <p className="quiz__text">
+          <p className={styles.quiz__text}>
             Answer three questions and we will send you a catalog with the most
             suitable products for you.
           </p>
-          <span className="quiz__line line"></span>
+          <span className={[styles['quiz__line'], styles.line].join(' ')}></span>
           <div className="quiz__options">
             <OptionsList />
             <OptionsPages />
@@ -26,12 +26,12 @@ const Quiz = () => {
 
 const OptionsList = () => {
   return (
-    <div className="options__list">
-      <p className="options__title">
+    <div>
+      <p className={styles.options__title}>
         What type of product are you considering?
       </p>
       <OptionsCard />
-      <span className="quiz__line line"></span>
+      <span className={[styles['quiz__line'], styles.line].join(' ')}></span>
     </div>
   );
 };
@@ -62,7 +62,7 @@ const OptionsCard = () => {
   return (
     <div className="options-card">
       {isLoading ? (
-        <div className="load-row">
+        <div className={styles.load__row}>
           <span></span>
           <span></span>
           <span></span>
@@ -71,12 +71,12 @@ const OptionsCard = () => {
       ) : error ? (
         <p>{error}</p>
       ) : (
-        <ul className="options-list">
+        <ul className={styles.options__list}>
           {categories.map((category) => (
-            <li key={category} className="options-list__card">
-              <div className="checkbox" aria-label="Product selection checkbox">
+            <li key={category} className={styles.options__card}>
+              <div className={styles.checkbox} aria-label="Product selection checkbox">
                 <input
-                  className="options-list__checkbox"
+                  className={styles.options__checkbox}
                   type="checkbox"
                   id={category}
                 ></input>
@@ -92,14 +92,14 @@ const OptionsCard = () => {
 
 const OptionsPages = () => {
   return (
-    <div className="quiz__pages">
+    <div className={styles.quiz__pages}>
       <button
-        className="quiz__btn btn"
+        className={[styles['quiz__btn'], styles.btn].join(' ')}
         aria-label="A button to go to the next page"
       >
         Next step
       </button>
-      <p className="pages-count">1 of 2</p>
+      <p className={styles.pages__count}>1 of 2</p>
     </div>
   );
 };

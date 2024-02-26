@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./Catalog.css";
+import styles from "./Catalog.module.css";
 import shoes from "../../assets/product.png";
 
 interface Product {
@@ -15,8 +15,8 @@ interface ProductItemProps {
 
 const Catalog: React.FC = () => {
   return (
-    <section id="catalog" className="catalog">
-      <div className="container">
+    <section id="catalog" className={styles.catalog}>
+      <div className={styles.container}>
         <h2>Catalog</h2>
         <CatalogList />
       </div>
@@ -81,18 +81,18 @@ const CatalogList: React.FC = () => {
   };
 
   return (
-    <div className="catalog-list">
-      <div className="catalog__parameters">
-        <p className="parameters__title">
+    <div className={styles.catalog__list}>
+      <div className={styles.catalog__parameters}>
+        <p className={styles.parameters__title}>
           Selection <br /> by parameters
         </p>
-        <p className="table__title">Category</p>
+        <p className={styles.table__title}>Category</p>
         <table aria-label="Selecting parameters for the list of products">
           <tbody>
             {isLoading ? (
               <tr>
-                <td colSpan={1} className="loading-row">
-                  <div className="load-row">
+                <td colSpan={1} className="loading__row">
+                  <div className={styles.load__row}>
                     <span></span>
                     <span></span>
                     <span></span>
@@ -102,7 +102,7 @@ const CatalogList: React.FC = () => {
               </tr>
             ) : error ? (
               <tr>
-                <td colSpan={1} className="error-row">
+                <td colSpan={1} className="error__row">
                   <p>{error}</p>
                 </td>
               </tr>
@@ -125,14 +125,14 @@ const CatalogList: React.FC = () => {
           </tbody>
         </table>
         <button
-          className="apply__btn btn"
+          className={[styles['apply__btn'], styles.btn].join(' ')}
           aria-label="The button for applying the selected parameters"
           onClick={handleApplyButtonClick}
         >
           Apply
         </button>
         <button
-          className="reset__btn btn"
+          className={[styles['reset__btn'], styles.btn].join(' ')}
           aria-label="Reset button for selected parameters"
           onClick={handleResetButtonClick}
         >
@@ -140,7 +140,7 @@ const CatalogList: React.FC = () => {
         </button>
       </div>
       {isLoading ? (
-        <div className="load-row">
+        <div className={styles.load__row}>
           <span></span>
           <span></span>
           <span></span>
@@ -167,13 +167,13 @@ const ProductsList: React.FC<{
 
   return (
     <div>
-      <ul className="products-list">
+      <ul className={styles.products__list}>
         {products.map((product) => (
           <ProductItem key={product.id} product={product} />
         ))}
       </ul>
       {/* <button
-        className="load-more__btn btn"
+        className={[styles['load__btn'], styles.btn].join(' ')}
         aria-label="A button to open the list of products"
       >
         Show more
@@ -184,10 +184,10 @@ const ProductsList: React.FC<{
 
 const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
   return (
-    <li className="products-list__item" id={product.id}>
+    <li className={styles.products__item} id={product.id}>
       <img src={shoes} alt="Product photo" />
-      <p className="item__title">{product.title}</p>
-      <p className="item__price">{product.price} $</p>
+      <p className={styles.item__title}>{product.title}</p>
+      <p className={styles.item__price}>{product.price} $</p>
     </li>
   );
 };

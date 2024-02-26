@@ -1,3 +1,68 @@
+.container {
+  max-width: 1178px;
+  margin: 0 auto;
+}
+
+.menu__logo,
+.btn {
+  cursor: pointer;
+}
+
+.btn {
+  font-family: "Jost", sans-serif;
+}
+
+.line {
+  display: block;
+  margin: 10px 0 100px;
+  height: 2px;
+  background-color: #fff;
+  opacity: 0.5;
+}
+
+.load__btn {
+  display: flex;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 16px;
+  color: white;
+  background-color: #f14f4f;
+  border: none;
+  border-radius: 4px;
+  padding: 22px 47px;
+}
+
+.load__row {
+  width: 100px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+}
+
+.load__row span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: #f76002;
+  border-radius: 50px;
+  animation: up-down6 0.5s ease-in infinite alternate;
+}
+
+.load__row span:nth-child(2) {
+  background: #e85b04c4;
+  animation-delay: 0.16s;
+}
+
+.load__row span:nth-child(3) {
+  background: #e85b0491;
+  animation-delay: 0.32s;
+}
+
+.load__row span:nth-child(4) {
+  background: #e85b0456;
+  animation-delay: 0.48s;
+}
+
 .quiz {
   padding: 60px 0 54px;
 }
@@ -32,7 +97,7 @@
   color: #444b58;
 }
 
-.options-list {
+.options__list {
   padding-bottom: 36px;
   display: flex;
   justify-content: space-between;
@@ -40,7 +105,7 @@
   row-gap: 20px;
 }
 
-.options-list__card {
+.options__card {
   flex-direction: column;
   display: flex;
   align-items: start;
@@ -65,7 +130,7 @@
   content: "";
 } */
 
-.options-list__checkbox {
+.options__checkbox {
   /* content: url(../../assets/check.svg); */
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -89,7 +154,7 @@
   justify-content: space-between;
 }
 
-.pages-count {
+.pages__count {
   color: #808080;
   font-weight: 600;
   font-size: 16px;
@@ -114,11 +179,16 @@
     text-align: center;
   }
 
-  .options-list {
+  .options__list {
     padding-bottom: 36px;
     gap: 15px;
     row-gap: 15px;
     justify-content: center;
+  }
+
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }
 
@@ -176,23 +246,23 @@
     padding: 8px 18px;
   }
 
-  .options-list {
+  .options__list {
     padding: 0 15px 36px;
   }
 }
 
 @media (max-width: 612px) {
-  .options-list__card {
+  .options__card {
     flex: 1 0 31%;
   }
 }
 
 @media (max-width: 480px) {
-  .options-list__card {
+  .options__card {
     flex: 1 0 48%;
   }
 
-  .options-list {
+  .options__list {
     gap: 0px;
   }
 }

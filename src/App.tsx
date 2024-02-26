@@ -7,7 +7,7 @@ import Quiz from "./components/Quiz/Quiz";
 import Team from "./components/Team/Team";
 import FAQ from "./components/FAQ/FAQ";
 import Footer from "./components/Footer/Footer";
-import "./components/Burger/Burger.css";
+import "./components/Burger/Burger.module.css";
 import Products from "./pages/Products";
 import Item from "./pages/Item";
  

@@ -9,5 +9,8 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "moduleResolution":"node",
+    "plugins": [{
+      "name": "typescript-plugin-css-modules"
+    }]
   }
 }

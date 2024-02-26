@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import "./Item.css";
-import "./Products.css";
+import styles from "./Item.module.css";
+import header from "../components/Header/Header.module.css";
+import item from "./Products.module.css";
 import logo from "../assets/logo.svg";
 import cardShoes from "../assets/card-product.png";
 
@@ -44,11 +45,11 @@ const Item = () => {
 
   const renderMenu = () => {
     return (
-      <div className="menu products-menu">
-        <a className="menu__logo" href="/">
+      <div className={[header['menu'], item.products__menu].join(' ')}>
+        <a className={header.menu__logo} href="/">
           <img src={logo} alt="Logo" />
         </a>
-        <div className="menu__nav nav">
+        <div className={[header['menu__nav'], header.nav].join(' ')}>
           <Link to="/t1/">Back to site</Link>
         </div>
       </div>
@@ -66,16 +67,16 @@ const Item = () => {
 
   return (
     <div className="products">
-      <div className="products__header">
-        <div className="container">{renderMenu()}</div>
+      <div className={item.products__header}>
+        <div className={styles.container}>{renderMenu()}</div>
       </div>
-      <section className="product__item">
-        <div className="container">
+      <section className={styles.product__item}>
+        <div className={styles.container}> 
           <h2>Product {id}</h2>
-          <div className="card">
-            <div className="card__gallery">
+          <div className={styles.card}>
+            <div className={styles.card__gallery}>
               <img src={cardShoes} />
-              <div className="card__carousel">
+              <div className={styles.card__carousel}>
                 {imagesArray.map((image, index) => (
                   <img key={index} src={image} />
                 ))}
@@ -87,8 +88,8 @@ const Item = () => {
               <div className="card__info">
                 {product ? (
                   <>
-                    <p className="card__title">{product.title}</p>
-                    <ul className="card__desc">
+                    <p className={styles.card__title}>{product.title}</p>
+                    <ul className={styles.card__desc}>
                       <li>
                         Rating: <span>{product.rating}</span>
                       </li>
@@ -117,7 +118,7 @@ const Item = () => {
                     </ul>
                   </>
                 ) : (
-                  <div className="load-row">
+                  <div className={styles.load__row}> 
                     <span></span>
                     <span></span>
                     <span></span>
@@ -126,7 +127,7 @@ const Item = () => {
                 )}
               </div>
             )}
-            <p className="card__id">
+            <p className={styles.card__id}>
               SKU ID: <span>{id}</span>
             </p>
           </div>
